@@ -1,0 +1,12 @@
+member(nil) do |member, recurso|
+
+	member.values do |values|
+		values.error do
+			values.mensagem      "Erro na requisição"
+			values.descricao     "O documento submetindo não é um JSON válido"
+		end
+	end
+
+	member.link("self", url("/produtos"))
+
+end

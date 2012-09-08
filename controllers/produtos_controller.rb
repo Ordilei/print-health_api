@@ -1,4 +1,4 @@
-class ProdutosController < ActionController::Base
+class ProdutosController < ActionController
   
   before do 
     response["Content-Type"] = "application/json"
@@ -55,7 +55,7 @@ class ProdutosController < ActionController::Base
       @produto = Produto.find(params[:id])
       cache_check(@produto)
       tokamak 'produto/show'.to_sym
-    rescue BSON::InvalidObjectId, Errors::DocumentNotFound => e
+    rescue BSON::InvalidObjectId, Mongoid::Errors::DocumentNotFound => e
       status 404 
     end
   end
@@ -88,7 +88,7 @@ class ProdutosController < ActionController::Base
         tokamak 'shared/error'.to_sym, {}, :object => @produto
       end
       status 404
-      rescue BSON::InvalidObjectId, Errors::DocumentNotFound
+      rescue BSON::InvalidObjectId, Mongoid::Errors::DocumentNotFound
     end
   end
   
@@ -102,7 +102,7 @@ class ProdutosController < ActionController::Base
       
       status 422
       tokamak 'shared/error'.to_sym, {}, :object => @produto
-      rescue BSON::InvalidObjectId, Errors::DocumentNotFound
+      rescue BSON::InvalidObjectId, Mongoid::Errors::DocumentNotFound
         status 404
     end
   end

@@ -1,4 +1,7 @@
 class Produto
+	include Mongoid::Document
+	include Mongoid::Timestamps
+
   
   field :ingrediente, :type => String
   field :nome, :type => String

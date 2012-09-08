@@ -2,7 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem 'sinatra'
-gem 'sqlite3'
+gem 'mongoid', :git => 'git://github.com/thoughtworks/mongoid.git'
+gem 'bson_ext', "~> 1.3"
+#gem 'SystemTimer', "~> 1.2.0"
+gem 'will_paginate'
+gem 'nokogiri'
+gem 'restfulie'
 gem 'rake'
 gem 'tokamak'
 gem 'multi_json'
