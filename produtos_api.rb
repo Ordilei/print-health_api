@@ -3,7 +3,9 @@ require 'bundler'
 Bundler.require
 require 'sinatra/base'
 require 'tokamak/hook/sinatra'
+require "lib/basic_domain_api/boot"
 require 'models/produto'
+require "controllers/base_controller"
 require 'controllers/produtos_controller'
 require 'will_paginate/array'
 
@@ -15,6 +17,7 @@ class ProdutosApi < Sinatra::base
 	end
 
 	use produtos_controller
+	use base_controller
 end
 
 def String.underscore

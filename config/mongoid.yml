@@ -1,33 +1,32 @@
 defaults: &defaults
-	host: localhost
-	logger: true
-#	  slaves:
-#			- host: slave1.local
-#				port: 27018
-#	    - host: slave2.local
-#				port: 27019
+  host: localhost
+  logger: false
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
 
 development:
-	<<: *defaults
-	database: print-health_api_development
-	logger: true
+  <<: *defaults
+  database: print-health_api_development
+  logger: true
 
 test:
-	<<: *defaults
-	database: print-health_api_test
+  <<: *defaults
+  database: print-health_api_test
 
 dev:
-	<<: *defaults
-	database: print-health_api
+  <<: *defaults
+  database: print-health_api
 
 qa:
-	<<: *defaults
-	database: print-health_api
+  <<: *defaults
+  database: print-health_api
 
-
-# Configurações de produção
-
+# set these environment variables on your prod server
+#production:
 #  host: <%= ENV['MONGOID_HOST'] %>
-#	 port: <%= ENV['MONGOID_PORT'] %>
-#	 username: <%= ENV['MONGOID_USERNAME'] %>
-#	 password: <%= ENV['MONGOID_PASSWORD'] %>
+#  port: <%= ENV['MONGOID_PORT'] %>
+#  username: <%= ENV['MONGOID_USERNAME'] %>
+#  password: <%= ENV['MONGOID_PASSWORD'] %>

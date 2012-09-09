@@ -1,4 +1,4 @@
-class ProdutosController < ActionController
+class ProdutosController < BaseController
   
   before do 
     response["Content-Type"] = "application/json"
