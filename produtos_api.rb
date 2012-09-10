@@ -9,15 +9,14 @@ require "controllers/base_controller"
 require 'controllers/produtos_controller'
 require 'will_paginate/array'
 
-class ProdutosApi < Sinatra::base
+class ProdutosApi < Sinatra::Base
 
 	configure do 
 		ENV['RACK_ENV'] ||= 'developmemt'
 		Mongoid.load!("config/mongoid.yml")		
 	end
 
-	use produtos_controller
-	use base_controller
+	use ProdutosController
 end
 
 def String.underscore

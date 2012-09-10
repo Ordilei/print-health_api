@@ -1,10 +1,10 @@
 collection(@produtos) do |collection|
-  collection.link 'self'    url("/produtos")
-  collection.link 'search'  url("/produtos/busca/descritor"), 'type' => 'application/opensearchdescription+xml'
-  collection.link 'new'     url("/produtos/novo"),   'type' => 'application/json'
+  collection.link 'self',    url("/produtos")
+  collection.link 'search',  url("/produtos/busca/descritor"), 'type' => 'application/opensearchdescription+xml'
+  collection.link 'new',     url("/produtos/novo"),   'type' => 'application/json'
   
   collection.values do |value|
     value.ingrediente "ingrediente"
     value.nome   "nome-produto"
   end
-end
+end 

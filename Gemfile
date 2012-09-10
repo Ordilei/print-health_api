@@ -1,15 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
-gem 'mongoid', :git => 'git://github.com/thoughtworks/mongoid.git'
-gem 'bson_ext', "~> 1.3"
-gem 'SystemTimer', "~> 1.2.0"
-gem 'will_paginate'
-gem 'nokogiri'
-gem 'restfulie'
-gem 'rake'
-gem 'tokamak'
-gem 'multi_json'
+gem "sinatra", "~> 1.2.6"
+gem "rake"
+gem "tokamak", "~> 1.2.1"
+gem "multi_json"
+gem 'sqlite3-ruby'
+
+gem "mongoid", :git => "git://github.com/thoughtworks/mongoid.git"
+gem "bson_ext", "~> 1.3"
+gem "SystemTimer", ">= 1.2.0"
+gem "will_paginate", "~> 3.0.1"  #usado em Evento.search
+gem "nokogiri"
+gem 'restfulie', '1.0.3'
 
 group :development do
   gem 'shotgun'
