@@ -1,0 +1,12 @@
+member(nil) do |member, recurso|
+
+  member.values do |values|
+    values.error do
+      values.mensagem     "Content-Type inválido"
+      values.descricao    "O Content-Type do documento é inválido."
+      values.tipo_recurso "erro"
+    end
+  end
+
+  member.link("self", url("/produtos"))
+end

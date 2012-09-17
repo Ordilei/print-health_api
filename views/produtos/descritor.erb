@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:eventos="<%= url("/produtos/busca") %>">
+  <ShortName>Buscar Produtos</ShortName>
+  <Description>Busca de Produtos</Description>
+  <Url type="application/json" template="<%= url("/produtos/busca") %>?q={searchTerms?}&amp;per_page={proutos:per_page_results?}&amp;order={produtos:order?}&amp;pw={startPage?}" pageOffset="1" indexOffset="1"/>
+  <Query role="example" title="Exemplo de formato esperado dos parâmetros" produtos:per_page_results?="15" />
+</OpenSearchDescription>

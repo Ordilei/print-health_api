@@ -3,7 +3,6 @@ require 'bundler'
 Bundler.require
 require 'sinatra/base'
 require 'tokamak/hook/sinatra'
-require "lib/basic_domain_api/boot"
 require 'models/produto'
 require "controllers/base_controller"
 require 'controllers/produtos_controller'

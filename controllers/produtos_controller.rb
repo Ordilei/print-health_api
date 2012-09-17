@@ -29,7 +29,7 @@ class ProdutosController < BaseController
   
   get '/produtos/busca/descritor' do
     response["Content-Type"] = "application/opensearchdescription+xml"
-    erb 'eventos/descritor'.to_sym
+    erb 'produtos/descritor'.to_sym
   end
   
   get 'produtos/busca' do 
@@ -46,7 +46,7 @@ class ProdutosController < BaseController
     options[:per_page] = per_page if per_page.present? && per_page > 0
     
     @produto = Produto.search(options)
-    tokamak 'eventos/show'.to_sym
+    tokamak 'produtos/show'.to_sym
   end
   
   get '/produtos/:id' do
@@ -54,7 +54,7 @@ class ProdutosController < BaseController
     begin
       @produto = Produto.find(params[:id])
       cache_check(@produto)
-      tokamak 'produto/show'.to_sym
+      tokamak 'produtos/show'.to_sym
     rescue BSON::InvalidObjectId, Mongoid::Errors::DocumentNotFound => e
       status 404 
     end

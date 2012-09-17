@@ -1,0 +1,11 @@
+member(@produto) do |m, produto|
+  m.values do |v|
+    v.titulo 	                      ""
+    v.nome_produto                  ""
+    v.data_inicio                   ""
+    v.ingredientes                  ""             
+  end
+
+  m.link 'self',        url("/produtos/novo")
+  m.link 'produtos',     url("/produtos")
+end

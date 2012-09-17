@@ -1,0 +1,16 @@
+member(object) do |member, recurso|
+  member.values do |values|
+    values.error do
+
+      mensagem_erro = recurso.errors.map do |key, value|
+        value = value.is_a?(Array) ? value.join(', ') : value
+       "#{key}: #{value}"
+      end.join('; ')
+
+      values.mensagem mensagem_erro
+      values.tipo_recurso "erro"
+    end
+  end
+
+  member.link("self", url("/produtos"))
+end

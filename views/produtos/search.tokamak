@@ -1,0 +1,35 @@
+collection(@produtos) do |collection, produtos|
+
+  collection.values do |value|
+    value.total_resultados    @produtos.total_entries
+    value.paginas_totais      @produtos.total_pages
+    value.itens_por_pagina    @produtos.per_page
+    value.pagina_atual        @produtos.current_page
+    value.query               params.to_query
+  end
+
+  collection.link 'self',     request.url
+  collection.link 'search',   url("/produtos/busca/descritor"), "type" => "application/opensearchdescription+xml"
+
+  if @produtos.current_page > 1
+    collection.link 'primeira', build_request_query_url(url("/produtos/busca"), 1, params)
+    collection.link 'anterior', build_request_query_url(url("/produtos/busca"), @produtos.previous_page, params)
+  elsif @produtos.current_page < @produtos.total_pages
+    collection.link 'ultima',   build_request_query_url(url("/produtos/busca"), @produtos.total_pages, params)
+    collection.link 'proxima',  build_request_query_url(url("/produtos/busca"), @produtos.next_page, params)
+  end
+
+  collection.members(:root => 'resultado') do |member, produto|
+    member.values do |m|
+      m.id                        url("/produtos/id/#{produto.id}")
+      m.tipo                      produto.tipo
+      m.slug                      produto.slug
+      m.titulo                    produto.titulo
+      m.data_inicio               date_as_iso8601(produto.data_inicio)
+      m.data_fim                  date_as_iso8601(produto.data_fim)
+      m.rotulos_controlados       produto.rotulos_controlados || []
+      m.tipo_recurso              "produto"
+    end
+    member.link('produto', url("/produtos/id/#{produto.id}"))
+  end
+end
