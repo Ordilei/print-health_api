@@ -6,7 +6,6 @@ gem "sinatra", "~> 1.2.6"
 gem "rake"
 gem "tokamak", "~> 1.2.1"
 gem "multi_json"
-gem 'sqlite3-ruby'
 gem 'heroku'
 
 gem "mongoid", :git => "git://github.com/thoughtworks/mongoid.git"
