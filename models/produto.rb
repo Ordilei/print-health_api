@@ -4,9 +4,11 @@ class Produto
 
   attr_accessible :ingrediente, :nome, :desc, :update_at
   
-  field :ingrediente, :type => String
+  field :ingredientes, :type => String
   field :nome, :type => String
-  
+  field :titulo, :type => String
+
+
   default_scope order_by([:update_at, :desc])
 
   def validate_data_e_hora

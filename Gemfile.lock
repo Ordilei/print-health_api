@@ -148,7 +148,6 @@ DEPENDENCIES
   shotgun
   shoulda-matchers
   sinatra (~> 1.2.6)
-  sqlite3-ruby
   thin
   tokamak (~> 1.2.1)
   will_paginate (~> 3.0.1)

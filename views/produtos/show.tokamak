@@ -1,12 +1,12 @@
 member(@produto) do |m, produto|
   m.values do |v|
     v.titulo                  produto.titulo
-    v.nome_produto            produto.nome_produto
-    v.data_inicio             date_as_iso8601(produto.data_inicio)
+    v.nome                    produto.nome
+    #v.data_inicio             date_as_iso8601(produto.data_inicio)
     v.ingredientes            produto.ingredientes  
-    v.tipo 	                  produto.tipo
+    #v.tipo 	                  produto.tipo
     v.id 	                    url("/produtos/id/#{produto.id}")
-    v.data_fim                date_as_iso8601(produto.data_fim)
+    #v.data_fim                date_as_iso8601(produto.data_fim)
 
   end
 

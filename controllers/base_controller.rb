@@ -11,7 +11,8 @@ class BaseController < Sinatra::Base
     end
     
     def content_type_check
-      unless request.content_type == "application/json"
+      puts "=== request: #{request.content_type}"
+      if !request.content_type =~ /application\/json/
         headers 'Content-Type' => 'application/json'
         status 415
         halt tokamak 'shared/unsupported_media_type'.to_sym
